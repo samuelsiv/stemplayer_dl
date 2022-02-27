@@ -13,7 +13,7 @@ stemplayer-dl is a project that allows you to dump all the existing songs.
 Change the base path name in utils.py if you do not want it to be Dump
 
 ## Issues
-Cannot merge songs into 1, due to my laziness, if you want to do it, send a pull request :)
+Nothing
 
 ## Contributing
 Pull requests are welcome. 
