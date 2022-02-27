@@ -3,8 +3,8 @@ import os,logging
 
 files = {}
 
-import warnings
-warnings.filterwarnings("ignore", category=FutureWarning)
+AudioSegment.converter = os.getcwd() + "\\ffmpeg.exe"
+
 # thx kyiro
 
 def merge(album, song):
@@ -24,10 +24,9 @@ def merge(album, song):
     for file in files:
         logging.debug(f"stem_merger: Merging file {file}")
         stems = files[file]
-        song = stems[0]
+        x_song = stems[0]
 
         for stem in stems[1:]:
-            song = song.overlay(stem)
+            x_song = x_song.overlay(stem)
             
-        song.export(os.path.join(f'{os.getcwd()}/Dump/{album}/{song}', "song.mp3"))
-            
+        x_song.export(os.path.join(f'{os.getcwd()}/Dump/{album}/{song}', "song.flac"), format="flac")
