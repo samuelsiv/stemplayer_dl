@@ -42,14 +42,17 @@ def merge(album, title, metadata):
             song = song.overlay(stem)
 
         PATH = '{}/songs/{}/{}.flac'.format(os.getcwd(), album, title)
-
+        song.apply_gain(metadata['gain'])
         song.export(PATH, format="flac", tags={
             'title': metadata['title'],
             'artist': metadata['artists'][0],
             'album': album,
             'color': metadata['color'],
             'tempos': metadata['tempos'],
-            'comments': 'https://github.com/samuelsiv/stemplayer_dl'
+            'comments': 'https://github.com/samuelsiv/stemplayer_dl',
+            'year': 2022,
+            'genre': 'Hip-Hop/Rap',
+            'albumartist': metadata['artists'][0]
         })
 
 
