@@ -10,10 +10,10 @@
 stemplayer-dl is a project that allows you to dump all the existing songs.
 
 ## Setup
-Change the base path name in utils.py if you do not want it to be Dump
+edit config.json (to be done)
 
 ## Issues
-Nothing
+takes a bit too long to download stems, i will implement async / await soon :)
 
 ## Contributing
 Pull requests are welcome. 
