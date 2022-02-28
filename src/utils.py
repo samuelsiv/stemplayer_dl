@@ -15,7 +15,7 @@ DEVICE_ID = "002800273330510139323636"
 files = {}
 
 
-def merge(album, title):
+def merge(album, title, metadata):
     PATH = f"{os.getcwd()}/songs/{album}/{title}"
 
     for file in os.scandir(PATH):
@@ -43,7 +43,14 @@ def merge(album, title):
 
         PATH = '{}/songs/{}/{}.flac'.format(os.getcwd(), album, title)
 
-        song.export(PATH, format="flac")
+        song.export(PATH, format="flac", tags={
+            'title': metadata['title'],
+            'artist': metadata['artists'][0],
+            'album': album,
+            'color': metadata['color'],
+            'tempos': metadata['tempos'],
+            'comments': 'https://github.com/samuelsiv/stemplayer_dl'
+        })
 
 
 def save_file(url, path):
@@ -52,7 +59,7 @@ def save_file(url, path):
         f.write(r)
 
 
-def download_stems(data, album, track):
+def download_stems(data, album, track, metadata):
     logging.debug("      download_stems: initialized")
 
     PATH = f"{os.getcwd()}/{BASE_FOLDER}/{album}/{track}"
@@ -82,7 +89,7 @@ def download_stems(data, album, track):
 
     if MERGE_SONGS:
         logging.info(f"      download_stems: merging track {track}")
-        merge(album, track)
+        merge(album, track, metadata)
 
     logging.debug("      download_stems: finished")
 

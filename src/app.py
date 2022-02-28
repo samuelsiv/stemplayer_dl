@@ -33,7 +33,12 @@ def dump_all():
 
             p = Process(
                 target=download_stems,
-                args=(data, album["title"], track["metadata"]["title"]),
+                args=(
+                    data,
+                    album["title"],
+                    track["metadata"]["title"],
+                    track["metadata"]
+                ),
             )
             p.start()
 
@@ -66,7 +71,12 @@ def dump_one(album_name):
 
         p = Process(
             target=download_stems,
-            args=(data, album["title"], track["metadata"]["title"]),
+            args=(
+                data,
+                album["title"],
+                track["metadata"]["title"],
+                track["metadata"]
+            ),
         )
         p.start()
 
