@@ -1,13 +1,15 @@
 import requests
 import logging
 import os
-from .exceptions import InvalidStatusCode
+from exceptions import InvalidStatusCode
 from pydub import AudioSegment
+
+AudioSegment.ffmpeg = '{}/ffmpeg.exe'.format(os.getcwd())
 
 API_URL = "https://api.stemplayer.com/"
 BASE_FOLDER = "songs"
 MERGE_SONGS = True
-FORMAT = "wav"  # or WAV
+FORMAT = "wav"
 DEVICE_ID = "002800273330510139323636"
 
 files = {}
@@ -39,7 +41,7 @@ def merge(album, title):
         for stem in stems[1:]:
             song = song.overlay(stem)
 
-        PATH = '{}/songs/album/{}'.format(os.getcwd(), title)
+        PATH = '{}/songs/{}/{}.flac'.format(os.getcwd(), album, title)
 
         song.export(PATH, format="flac")
 
