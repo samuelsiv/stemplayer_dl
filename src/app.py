@@ -1,4 +1,5 @@
 from utils import get_track, get_albums, download_stems
+import utils
 from multiprocessing import Process
 import logging
 import argparse
@@ -13,6 +14,8 @@ parser.add_argument("-m", "--merge", help="Should merge songs",
                     required=False)
 parser.add_argument("-d", "--debug", help="Should debug logs",
                     required=False)
+parser.add_argument("-f", "--format", help="MP3 or WAV (WAV is way more heavier)",
+                    required=False, default="mp3")
 args = parser.parse_args()
 
 
@@ -97,6 +100,9 @@ if __name__ == "__main__":
         logging.basicConfig(level=logging.INFO)
 
     logging.info("stemdumper v3")
+
+    if (args.format):
+        utils.FORMAT = args.format
 
     if (args.album):
         dump_one(args.album)
