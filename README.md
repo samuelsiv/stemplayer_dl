@@ -1,21 +1,17 @@
-<h1 align="center">stemplayer-dl</h1>
+<h1 align="center">stemplayer-dl [NOT MAINTAINED]</h1>
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
 
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 [![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3102/)
 
 
-stemplayer-dl is a project that allows you to dump all the existing songs.
+stemplayer-dl was a project that allowed you to dump all the existing songs within the stem player platform without actually purchasing a STEM PLAYER device.
+This is just open source for the sake of showing the old projects I've worked on.
 
 ## Setup
 edit config.json (to be done)
 
-## Issues
-takes a bit too long to download stems, i will implement async / await soon :)
-
 ## Contributing
 Pull requests are welcome. 
-
-Kano, if you aren't okay with this send me a message and I will delete the repo :)
